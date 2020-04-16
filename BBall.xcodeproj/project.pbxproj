@@ -16,7 +16,9 @@
 		1617D2592447FFB4000BB5FB /* BBallTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1617D2582447FFB4000BB5FB /* BBallTests.swift */; };
 		1617D2642447FFB4000BB5FB /* BBallUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1617D2632447FFB4000BB5FB /* BBallUITests.swift */; };
 		1617D27324480848000BB5FB /* punishments.csv in Resources */ = {isa = PBXBuildFile; fileRef = 1617D27224480847000BB5FB /* punishments.csv */; };
-		1617D2752448146A000BB5FB /* RandomizeOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1617D2742448146A000BB5FB /* RandomizeOrder.swift */; };
+		1617D279244899E6000BB5FB /* RandomizeOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1617D278244899E6000BB5FB /* RandomizeOrder.swift */; };
+		1617D27B2448A66D000BB5FB /* PunishmentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1617D27A2448A66D000BB5FB /* PunishmentData.swift */; };
+		1617D27D2448C810000BB5FB /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = 1617D27C2448C810000BB5FB /* TODO */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +54,9 @@
 		1617D2632447FFB4000BB5FB /* BBallUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BBallUITests.swift; sourceTree = "<group>"; };
 		1617D2652447FFB4000BB5FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1617D27224480847000BB5FB /* punishments.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = punishments.csv; sourceTree = "<group>"; };
-		1617D2742448146A000BB5FB /* RandomizeOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomizeOrder.swift; sourceTree = "<group>"; };
+		1617D278244899E6000BB5FB /* RandomizeOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomizeOrder.swift; sourceTree = "<group>"; };
+		1617D27A2448A66D000BB5FB /* PunishmentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PunishmentData.swift; sourceTree = "<group>"; };
+		1617D27C2448C810000BB5FB /* TODO */ = {isa = PBXFileReference; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,7 +115,8 @@
 				1617D24C2447FFB4000BB5FB /* LaunchScreen.storyboard */,
 				1617D24F2447FFB4000BB5FB /* Info.plist */,
 				1617D2492447FFB4000BB5FB /* Preview Content */,
-				1617D2742448146A000BB5FB /* RandomizeOrder.swift */,
+				1617D278244899E6000BB5FB /* RandomizeOrder.swift */,
+				1617D27A2448A66D000BB5FB /* PunishmentData.swift */,
 			);
 			path = BBall;
 			sourceTree = "<group>";
@@ -146,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				1617D27224480847000BB5FB /* punishments.csv */,
+				1617D27C2448C810000BB5FB /* TODO */,
 			);
 			path = data_files;
 			sourceTree = "<group>";
@@ -255,6 +261,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1617D24E2447FFB4000BB5FB /* LaunchScreen.storyboard in Resources */,
+				1617D27D2448C810000BB5FB /* TODO in Resources */,
 				1617D24B2447FFB4000BB5FB /* Preview Assets.xcassets in Resources */,
 				1617D2482447FFB4000BB5FB /* Assets.xcassets in Resources */,
 				1617D27324480848000BB5FB /* punishments.csv in Resources */,
@@ -282,10 +289,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1617D2752448146A000BB5FB /* RandomizeOrder.swift in Sources */,
+				1617D279244899E6000BB5FB /* RandomizeOrder.swift in Sources */,
 				1617D2422447FFB2000BB5FB /* AppDelegate.swift in Sources */,
 				1617D2442447FFB2000BB5FB /* SceneDelegate.swift in Sources */,
 				1617D2462447FFB2000BB5FB /* ContentView.swift in Sources */,
+				1617D27B2448A66D000BB5FB /* PunishmentData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,6 +460,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"BBall/Preview Content\"";
+				DEVELOPMENT_TEAM = VGY3993EJ5;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = BBall/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -471,6 +480,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"BBall/Preview Content\"";
+				DEVELOPMENT_TEAM = VGY3993EJ5;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = BBall/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

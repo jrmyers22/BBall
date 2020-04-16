@@ -21,7 +21,7 @@ let punishments = [
     "Loser: Eat a hot pepper":8,
     "Loser: Winner leads loser on a leash at a dog park until another dog accepts them as one of their own (dog cone optional)":2,
     "Loser: The neighbor/milk one":8,
-    "Loser: Chapel Hill is better, change my mind (in the brickyard)":8,
+    "Loser: Chapel Hill is better, change my mind (in the brickyard)":2,
     "Loser: Silent library style embarrassing music":8,
     "Loser: Lemonade stand":8,
     "First two losers: Have to hold hands any time they are in public together for a day":2,
@@ -36,6 +36,7 @@ let punishments = [
 
 var order: [String] = []
 var randomPunishment: String = ""
+var punishmentPercents: [String: Int] = [:]
 
 struct ContentView: View {
     
@@ -50,7 +51,7 @@ struct ContentView: View {
                     // New Game
                     Button(action: {
                         // What to perform
-                        let randomizeOrder = RandomizeOrder(items: ["Jacob","Tatlock","Brennen","Feddy","Ani"])
+                        let randomizeOrder = RandomizeOrder(roommates: ["Jacob","Tatlock","Brennen","Feddy","Ani"])
                         order = randomizeOrder.getRandom()
                         self.displayNewGame = true
                         print("New Game pushed")
@@ -73,6 +74,8 @@ struct ContentView: View {
                     // View List of Punishments
                     Button(action: {
                         // What to perform
+                        let punishmentData = PunishmentData(punishmentMap: punishments)
+                        punishmentPercents = punishmentData.getPunishmentPercentageMap()
                         self.displayAllPunishments = true
                         print("View List of Punishments pushed")
                     }) {
@@ -128,7 +131,7 @@ struct NewGameView: View {
                                 .font(.title)
                                 .padding()
                                 .background(Color.clear)
-                                .foregroundColor(.black)
+                                .foregroundColor(.red)
                                 .padding(5)
                                 .border(Color.gray, width: 3)
                         }
@@ -140,7 +143,7 @@ struct NewGameView: View {
                 Button(action: {
                     // What to perform
                     // TODO: Need to create a new data structure with the correct amount of keys in there according to values
-                    let randomizePunishments = RandomizeOrder(items: punishments.keys.sorted())
+                    let randomizePunishments = RandomizeOrder(fullMap: punishments)
                     randomPunishment = randomizePunishments.getRandom()[0]
                     self.showPunishment = true
                     print("View Current Punishment")
@@ -174,8 +177,14 @@ struct AllPunishmentsView: View {
         ScrollView(.vertical) {
             VStack {
                 ForEach (0..<punishmentKeys.count) {
-                    Text(self.punishmentKeys[$0])
-                    .font(.title)
+                    (
+                        Text(self.punishmentKeys[$0])
+//                            .font(.title)
+//                            + Text("\n\nChance: \(String(punishmentPercents[self.punishmentKeys[$0]]!))")
+                            + Text("\n\nChance: \(punishmentPercents[self.punishmentKeys[$0]]!)%")
+//                            .font(.title)
+                            .fontWeight(.bold)
+                    )
                     .padding()
                     .background(Color.red)
                     .foregroundColor(.white)

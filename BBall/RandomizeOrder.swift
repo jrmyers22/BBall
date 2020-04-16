@@ -8,23 +8,43 @@
 
 import Foundation
 class RandomizeOrder {
-    var items: [String]
-    let limit: Int
-    init(items: [String], limit: Int = 0) {
-        self.items = items
-        self.limit = limit
+    var roommates: [String]
+    var fullMap: [String:Int]
+    
+    init(roommates: [String] = [], fullMap: [String:Int] = [:]) {
+        self.roommates = roommates
+        self.fullMap = fullMap
     }
     
     func getRandom() -> [String] {
-        if limit != 0 {
-          let randomInt = Int.random(in: 0..<self.items.count)
-          return Array([self.items[randomInt]])
+        print("Get Random")
+        if roommates.count == 0 {
+            print("Getting a random single punishment")
+            // Just return a single random punishment
+            
+            // First need to create a datastructure with the correct number of elements in there
+            var extendedPunishmentsList: [String] = []
+            for element in self.fullMap { // iterate through each element in the map
+                for _ in 1...element.value { // uses _ because the value is never used, iterate 1-value and add the key
+                    extendedPunishmentsList.append(element.key)
+                }
+            }
+            print(extendedPunishmentsList.count)
+            print(extendedPunishmentsList)
+            
+            // Then randomize the selection, return a 1 element long list to conform to the return type
+            let randomInt = Int.random(in: 0..<extendedPunishmentsList.count)
+            print(randomInt)
+            print(extendedPunishmentsList[randomInt])
+            return Array([extendedPunishmentsList[randomInt]])
         }
         var shuffled: [String] = []
-        while (shuffled.count != self.items.count) {
-            let randomInt = Int.random(in: 0..<self.items.count)
-            if (!shuffled.contains(self.items[randomInt])) {
-                shuffled.append(self.items[randomInt])
+        if roommates.count > 0 {
+            while (shuffled.count != self.roommates.count) {
+                let randomInt = Int.random(in: 0..<self.roommates.count)
+                if (!shuffled.contains(self.roommates[randomInt])) {
+                    shuffled.append(self.roommates[randomInt])
+                }
             }
         }
         return shuffled

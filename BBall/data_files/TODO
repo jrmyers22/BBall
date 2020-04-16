@@ -1,0 +1,12 @@
+"New Game" View
+- Ability to accept a punishment and it change the result in persistent
+    - The ablity to decline and do nothing
+
+"All Punishments" View
+- Add new punishment inside of the Punishments view
+    - Pick from "Low, Medium, High" likelihood from a slide picker
+        - High = get highest existing number in punishmentsMap
+        - Low = get lowest existing number in the punishmentsMap
+        - Med = Average of the two
+- Drop down that allows filtering by highest percentage likelihood
+- Search for a punishment
