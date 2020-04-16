@@ -29,13 +29,9 @@ class RandomizeOrder {
                     extendedPunishmentsList.append(element.key)
                 }
             }
-            print(extendedPunishmentsList.count)
-            print(extendedPunishmentsList)
             
             // Then randomize the selection, return a 1 element long list to conform to the return type
             let randomInt = Int.random(in: 0..<extendedPunishmentsList.count)
-            print(randomInt)
-            print(extendedPunishmentsList[randomInt])
             return Array([extendedPunishmentsList[randomInt]])
         }
         var shuffled: [String] = []

@@ -1,5 +1,5 @@
 "New Game" View
-- Ability to accept a punishment and it change the result in persistent
+- Ability to accept a punishment and it change the result in persistent memory
     - The ablity to decline and do nothing
 
 "All Punishments" View
@@ -10,3 +10,7 @@
         - Med = Average of the two
 - Drop down that allows filtering by highest percentage likelihood
 - Search for a punishment
+
+"Game Stats"
+- List view of Tables
+    - Each table has Game: 1/2/3/4..., First: name, Second: name, etc. then Punishment: description, Completed: Yes/No

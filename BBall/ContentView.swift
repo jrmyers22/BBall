@@ -42,6 +42,8 @@ struct ContentView: View {
     
     @State private var displayAllPunishments: Bool = false
     @State private var displayNewGame: Bool = false
+    @State private var displayGameStatsView: Bool = false
+    
     
     var body: some View {
         NavigationView {
@@ -97,6 +99,7 @@ struct ContentView: View {
                     // View Game Stats
                     Button(action: {
                         // What to perform
+                        self.displayGameStatsView = true
                         print("Game stats pushed")
                     }) {
                         // How the button looks
@@ -108,7 +111,9 @@ struct ContentView: View {
                         .foregroundColor(.white)
                         .padding(10)
                         .border(Color.green, width: 5)
-                    }
+                    }.sheet(isPresented: $displayGameStatsView, content: {
+                        GameStatsView()
+                    })
                 }
             }
             .navigationBarTitle(Text("BBall"))
@@ -124,10 +129,11 @@ struct NewGameView: View {
             if showPunishment {
                 PunishmentView()
             } else {
-                VStack {
+                VStack(spacing: 5) {
                     Section (header: Text("Order").fontWeight(.bold).font(.title)){
                         ForEach(0..<order.count) {
                             Text(order[$0])
+                                .frame(width: 150)
                                 .font(.title)
                                 .padding()
                                 .background(Color.clear)
@@ -136,7 +142,9 @@ struct NewGameView: View {
                                 .border(Color.gray, width: 3)
                         }
                     }
-                }.padding()
+                }
+//                .frame(alignment: .bottom)
+                .padding()
                 
                 Divider()
                 
@@ -174,24 +182,36 @@ struct PunishmentView: View {
 struct AllPunishmentsView: View {
     let punishmentKeys = punishments.keys.sorted()
     var body: some View {
-        ScrollView(.vertical) {
-            VStack {
-                ForEach (0..<punishmentKeys.count) {
-                    (
-                        Text(self.punishmentKeys[$0])
-//                            .font(.title)
-//                            + Text("\n\nChance: \(String(punishmentPercents[self.punishmentKeys[$0]]!))")
-                            + Text("\n\nChance: \(punishmentPercents[self.punishmentKeys[$0]]!)%")
-//                            .font(.title)
-                            .fontWeight(.bold)
-                    )
-                    .padding()
-                    .background(Color.red)
-                    .foregroundColor(.white)
-                    .padding(10)
+        NavigationView {
+            GeometryReader { geometry in
+                ScrollView(.vertical) {
+                    VStack {
+                        ForEach (0..<self.punishmentKeys.count) {
+                            (
+                                Text(self.punishmentKeys[$0])
+        //                            .font(.title)
+                                    + Text("\n\nChance: \(punishmentPercents[self.punishmentKeys[$0]]!)%")
+        //                            .font(.title)
+                                    .fontWeight(.bold)
+                                
+                            )
+                            .frame(width: (geometry.size.width / 4) * 3, alignment: .topLeading) // take up 3/4 of the screen from the middle
+                            .padding()
+                            .background(Color.red)
+                            .foregroundColor(.white)
+                            .padding(10)
+                        }
+                    }.padding()
                 }
-            }.padding()
+            }.navigationBarTitle(Text("Punishments"))
         }
+    }
+}
+
+struct GameStatsView: View {
+    var body: some View {
+        Text("Coming Soon")
+            .font(.title)
     }
 }
 
